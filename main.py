@@ -29,6 +29,9 @@ URL = "https://www.businessinsider.com/chatgpt-trading-stocks-high-returns-simul
 
 text_input = pn.widgets.TextInput(name='BusinessInsider URL', value=URL , placeholder='Enter Business insdier URL here...')
 
+button = pn.widgets.Button(name='Click me', button_type='primary')
+
+pn.config.sizing_mode = 'stretch_height'
 # pn.config.sizing_mode = 'stretch_width'
 # TXT = return_buisnessinsider_withoutads(text_input.value)
 
@@ -55,10 +58,10 @@ def return_editor(textinput):
     [{ 'align': [] }],
 
     ['clean']                                         # remove formatting button
-  ])
+  ] , sizing_mode='stretch_height')
 
 
 pn.Column(
-    text_input,
+    text_input,button,
     pn.bind(return_editor , text_input)
 ).servable(title="Get BusinessInsider Article")
